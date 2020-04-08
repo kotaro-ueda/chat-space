@@ -20,7 +20,7 @@
 |mail|string|null: false|
 
 ### Association
-- has_many :users, through: groups_users
+- has_many :groups, through: groups_users
 - has_many :groups
 
 ## chatsテーブル
@@ -32,6 +32,7 @@
 
 ### Association
 - belongs_to :user
+- belongs_ to :group
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -39,5 +40,5 @@
 |group|string|index: true, null:false,unque: true|
 
 ### Association
+- has_many :groups
 - has_many :groups_users
-- has_many :users
