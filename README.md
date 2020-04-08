@@ -20,9 +20,8 @@
 |mail|string|null: false|
 
 ### Association
-- has_many :groups, through: members
-- has_many :messages
-- has_many :members
+- has_many :users, through: groups_users
+- has_many :groups
 
 ## chatsテーブル
 |Column|Type|Options|
@@ -40,5 +39,5 @@
 |group|string|index: true, null:false,unque: true|
 
 ### Association
-- has_many :groups
+- has_many :groups through: groups_users
 - has_many :users
