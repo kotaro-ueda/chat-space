@@ -24,22 +24,21 @@
 - has_many :messages
 - has_many :members
 
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|chat_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :chat
-- belongs_to :user
-
 ## chatsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
 |text|text||
 |user_id|integer|null: false, foreign_key: true|
+
 ### Association
 - belongs_to :user
-- has_many :comments
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group|string|index: true, null:false,unque: true|
+
+### Association
+- has_many :groups
+- has_many :users
