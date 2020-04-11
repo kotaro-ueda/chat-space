@@ -1,0 +1,40 @@
+.chat-main
+  .main-header
+    .main-header-item
+      .main-header-item-name
+        .main-header-item-name-test
+          test
+        .main-header-item-name-left
+          .main-header-item-name-left-box
+            Member :
+            .main-header-item-name-left-right
+              masa
+      = link_to "#" do
+        Edit
+  .messages
+    .messages-item
+      .messages-item-name
+        .messages-item-name-left
+          masa
+        .messages-item-name-right
+          2019/11/20(Wed) 17:43:01
+      .messages-item-comments
+        おはよう!
+    .messages-box
+      .messages-box-name
+        .messages-box-name-left
+          masa
+        .messages-box-name-right
+          2019/11/20(Wed) 17:43:34
+      .messages-box-comments
+        今日は朝から雨
+  .form
+    .form-item
+      .form-item-name
+        %input.form-item-name-text{:placeholder => "type a message"}/
+        .form-item-name-btn
+          %label{class: "a"}
+            = icon('fa', 'image')
+            %input{type: "file", class:"file"}
+      .form-item-btn
+        Send
