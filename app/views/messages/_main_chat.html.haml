@@ -3,38 +3,31 @@
     .main-header-item
       .main-header-item-name
         .main-header-item-name-test
-          test
+          =@group.name
         .main-header-item-name-left
           .main-header-item-name-left-box
             Member :
+            -@group.users.each do |user|
+              =user.name
             .main-header-item-name-left-right
-              masa
-      = link_to "#" do
+      = link_to edit_group_path(@group) do
         Edit
   .messages
+    = render @messages
     .messages-item
       .messages-item-name
         .messages-item-name-left
           masa
         .messages-item-name-right
-          2019/11/20(Wed) 17:43:01
+          2019/11/20/(Wed) 17:02:10
       .messages-item-comments
         おはよう!
-    .messages-box
-      .messages-box-name
-        .messages-box-name-left
-          masa
-        .messages-box-name-right
-          2019/11/20(Wed) 17:43:34
-      .messages-box-comments
-        今日は朝から雨
   .form
-    .form-item
-      .form-item-name
-        %input.form-item-name-text{:placeholder => "type a message"}/
-        .form-item-name-btn
-          %label{class: "a"}
+    = form_for [@group, @message] do |f|
+      .form-name
+        = f.text_field :content, class: 'form-name-text', placeholder: 'type a message'
+        .form-name-btn
+          = f.label :image, class: 'a' do
             = icon('fa', 'image')
-            %input{type: "file", class:"file"}
-      .form-item-btn
-        Send
+            = f.file_field :image, class: 'file'
+      = f.submit 'Send', class: 'form-btn'
